@@ -1,8 +1,27 @@
 @colorBgWhite: #f3f3f3;
+@colorBgForm: #e7e9ec;
+@colorBgInput: #d6dbe2;
+@colorOrange: #ED9B00;
+@colorText: #2c60a8;
+@colorTextTwo: #002B67;
+@colorTextText: #365681;
+@marginRL: 0 8.3%;
+
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    src: local('Rounded Mplus 1c'), 
+    	local('RoundedMplus1c-Regular'), 
+    	url('../fonts/Roundedmplus1c.woff2') format('woff2'), 
+    	url('../fonts/Roundedmplus1c.woff') format('woff'), 
+    	url('../fonts/Roundedmplus1c.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
 
 
-body {
-	font-family: 'M PLUS Rounded 1c', sans-serif;
+body{
+	font-family: 'M PLUS Rounded 1c';
+	background: @colorBgWhite;
 }
 *{
 	padding: 0;
@@ -15,12 +34,13 @@ li{
 a{
 	text-decoration: none;
 }
-
 header{
-	background: #f3f3f3;
+	width: 100%;
+	position: fixed;
+	z-index: 1;
 
 	.header-container{
-		margin: 0 8.3%;
+		margin: @marginRL;
 		display: flex;
 
 		.logo{
@@ -38,12 +58,172 @@ header{
 				display: flex;
 				justify-content: space-between;
 
-				li{
+				li a{
+					line-height: 18px;
+					border-bottom: 1.5px #ced7e5 solid;
 					font-size: 18px;
-					font-weight: normal;
+					color: @colorText;
+					opacity: 0.5;
+
+					&:hover{
+						opacity: 0.8;
+					}
 				}
 			}
 		}
 	}
+}
+
+main{
+	h1{
+		color: @colorText;
+		margin-bottom: 3vh;
+		font-size: 35px;
+	}
+	h3{
+		color: @colorTextTwo;
+		font-size: 30px;
+		line-height: 32px;
+		margin-bottom: 3vh;
+	}	
+	.left-side{
+		width: 50%;
+		padding-top: 15vh;
+		margin: @marginRL;
+	}
+	.main-slide{
+		display: flex;
+		height: 100vh;
+
+		.left-side{
+
+			.main-form{
+				background: @colorBgForm;
+				width: 90%;
+				padding-top: 4vh;
+				padding-bottom: 4vh;
+				padding-left: 5%;
+				border-radius: 7px;
+
+				h4{
+					color: #072f65;
+					font-size: 30px;
+					font-weight: 200;
+					margin-bottom: 2vh;
+
+					span{
+						color: @colorText;
+						font-weight: 800;
+					}
+				}
+
+				.form-group{
+					margin-bottom: 4vh;
+					color: @colorText;
+
+					label{
+						opacity: 0.5;
+						font-size: 18px;
+						margin-right: 2%;	
+					}
+					input{
+						height: 5.5vh;
+						border-radius: 7px;
+						border: 0px;
+						background: @colorBgInput;
+						width: 65%;
+					}
+
+				}
+
+				.agree{
+					color: @colorText;
+					opacity: 0.5;
+					font-size: 18px;
+					padding-left: 11%;
+					margin-top: -15px;
+
+					label input{
+						display: none;
+					}
+
+					label:before{
+						content: " ";
+						color: #000;
+						display: inline-block;
+						background: #ffffff;
+						margin-right: 1%;
+						text-align: center;
+						width: 6%;
+						height: 4vh;
+						border-radius: 4px;
+						border-image: initial;
+						vertical-align: middle;
+					}	
+					label.check{
+						&:before{
+							content: "\2713";
+						}
+					}			
+				}
+
+				.number label{
+					margin-left: -10px;
+				}
+
+				button{
+					width: 90%;
+					height: 9vh;
+					margin-top: 10px;
+					margin-left: 5%;
+					background: @colorOrange;
+					font-family: 'M PLUS Rounded 1c';
+					font-size: 18px;
+					font-weight: 800;
+					border: 0;
+					color: white;
+					border-radius: 30px;
+					box-shadow: 0 0 7px 4px #e2cea6;
+				}
+			}
+		}
+
+		.rigth-side{
+			background: @colorOrange;
+			width: 40%;
+			img{
+				position: relative; 
+				right: 7.5%;	
+				margin-top: 9.8vh;
+			}
+		}
+	}
+
+	.advantages{
+		display: flex;
+		height: 100vh;
+		.left-side li{
+			display: block;
+			dl{
+				dt h3{
+					font-size: 30px;
+					margin-bottom: 1vh;
+				}
+				dd{
+					margin-left: 35px;
+					margin-bottom: 3.5vh;
+					color: @colorTextText;
+
+					span{
+						font-weight: 600;
+					}
+				}
+			}
+		}
+		.rigth-side{
+			margin-top: 20vh;
+		}
+	}
+
 }
 
