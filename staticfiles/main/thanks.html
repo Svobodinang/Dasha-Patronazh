@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Патронажная служба - заявка отправлена</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+	<!-- less -->
+	<link rel="stylesheet/less" type="text/css" href="{% static 'css/style.less' %}" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js" ></script>
+
+	<!-- шрифты -->
+	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&amp;subset=cyrillic" rel="stylesheet">    
+</head>
+<body class="thanks">
+
+    <h1>Ваше письмо отправлено!</h1>
+    <p>Мы уже смотрим вашу заявку и скоро свяжемся с Вами!</p>
+    <button onclick="location.href='{% url 'main' %}'">< На главную</button>
+
+</body>
+</html>

@@ -25,7 +25,7 @@ SECRET_KEY = '!8zm=_#xpm&-)o+8cmril5cgrf*rgf126^uevaig00m!mm8!dr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.43.60', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.43.60', '127.0.0.1', 'https://svobodinang.github.io/']
 
 
 # Application definition
@@ -55,8 +55,7 @@ ROOT_URLCONF = 'patronazh.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,7 +107,10 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'Europe/Moscow'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'main/static'),
+)
 
 USE_I18N = True
 

@@ -1,0 +1,1663 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+
+	<!-- less -->
+	<link rel="stylesheet/less" type="text/css" href="{% static 'css/style.less' %}" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js" ></script>
+
+	<!-- шрифты -->
+	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&amp;subset=cyrillic" rel="stylesheet">
+
+	<link rel="stylesheet" href="fm.revealator.jquery.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/fm.revealator.jquery.js"></script>
+
+	<title>Патронажная служба</title>
+</head>
+<body>
+
+	<header>
+		<div class="header-container" id="header-container">
+			<nav role="navigation">
+				<a href="#main-slide" class="go_to logo" id="logo-mob"><h3>Патронаж32</h3></a>
+				<ul class="main-menu" id="main-menu">			
+					<li class="logo-laptop"><a href="#main-slide" class="go_to logo" id="logo"><h3>Патронаж32</h3></a></li>
+					<li><a class="go_to" id="a1" href="#advantages">Преимущества</a></li>
+					<li class="a2-laptop"><a class="go_to" id="a2-laptop" href="#services-laptop">Услуги и цены</a></li>
+					<li class="a2-mob"><a class="go_to" id="a2-mob" href=".services-mob">Услуги и цены</a></li>					
+					<li><a class="go_to" id="a3" href="#about-us">О нас</a></li>
+					<li><a class="go_to" id="a4" href="#responses-list">Отзывы</a></li>
+					<li><a class="go_to" id="a5" href="#parthners">Партнеры</a></li>
+					<li><a class="go_to" id="a6" href="#charity">Благотворительность</a></li>
+					<li><a class="go_to" id="a7" href="#vacancies">Вакансии</a></li>
+					<li><a class="go_to" id="a8" href="#contacts">Контакты</a></li>
+				</ul>
+				<a id="menu" class="icon"><img src="{% static 'img/menu.png' %}"></a>
+			</nav>			
+		</div>
+	</header>
+
+	<main>
+		<section class="main-slide" id="main-slide">
+			<div class="left-side">
+				<h1>
+					АНО &#171Патронажная служба&#187
+				</h1>
+				<h3 class="laptop">
+					«Лечит врач,<br>
+					Вылечивает ухаживающий!»
+				</h3>
+				<h3 class="mob">
+					«Лечит врач,<br>
+					Вылечивает ухаживающий!»
+				</h3>				
+				<form method="post" class="main-form laptop">{% csrf_token %}
+					<h4>
+						Оставьте <span>заявку</span> и мы <span>будем рядом</span>
+					</h4>
+
+					<div class="form-group">
+						<label>Имя и фамилия:</label>
+						{{ main_form.name }}
+					</div>
+					<div class="form-group number">
+						<label>Номер телефона:</label>
+						{{ main_form.number }}
+					</div>
+					<div class="form-group">
+						<label>Почтовый ящик:</label>
+						{{ main_form.email }}
+					</div>								
+					<div class="agree">
+						{{ main_form.agree }}
+						<label id="checkbox-label" class="uncheck" name="agree" onclick="fun()"> Согласие на обработку персональных данных</label>
+					</div>
+					<button>Свяжитесь со мной!</button>
+
+				</form>
+			</div>
+			<div class="rigth-side">
+				<form class="main-form mob" method="post">{% csrf_token %}
+					<h4>
+						Оставьте <span>заявку</span> и мы <span>будем рядом</span>
+					</h4>
+
+					<div class="form-group">
+						<label>Имя и фамилия:</label><br>
+						{{ main_form_mob.name }}
+					</div>
+					<div class="form-group number">
+						<label>Номер телефона:</label><br>
+						{{ main_form_mob.number }}
+					</div>
+					<div class="form-group">	
+						<label>Почтовый ящик:</label><br>
+						{{ main_form_mob.email }}
+					</div>
+					<div class="agree">
+						{{ main_form_mob.agree }}
+						<label id="checkbox-label-mob" class="uncheck" name="agree" onclick="fun_mob()"> Согласие на обработку персональных данных</label>
+					</div>
+					<button>Свяжитесь со мной!</button>
+				</form>
+				<img src="{% static 'img/grandma.png' %}">
+			</div>
+		</section>
+
+		<section class="advantages" id="advantages">
+			<div class="left-side laptop">
+				<h1>Патронажная служба</h1>
+				<ol>
+					<li>
+						<dl>
+							<dt>
+								<h3>1. Гарантия</h3>
+							</dt>
+							<dd>
+								АНО «Патронажная служба» находится
+								<span>в реестре поставщиков социальных услуг</span>
+							</dd>
+						</dl>
+					</li>					
+					<li>
+						<dl>
+							<dt>
+								<h3>2. С Вами професcионалы</h3>
+							</dt>
+							<dd>
+								Все наши сотрудники проходят <span>профессиональную подготовку</span>
+								согласно профессиональному стандарту от Минтруда России
+							</dd>
+						</dl>
+					</li>	
+					<li>
+						<dl>
+							<dt>
+								<h3>3. Найдем подход и поддержим</h3>
+							</dt>
+							<dd>
+								<span>Умеем найти контакт, </span>
+								понять предпочтения, морально поддержать
+							</dd>
+						</dl>
+					</li>	
+					<li>
+						<dl>
+							<dt>
+								<h3>4. Освободим время для родственников</h3>
+							</dt>
+							<dd>
+								Избавим от рутинных дел и поможем <span>сконцентрировать внимание на выздоровлении</span>
+								и более позитивном общении членов семьи
+							</dd>
+						</dl>
+					</li>	
+					<li>
+						<dl>
+							<dt>
+								<h3>5. Поможем уменьшить расходы</h3>
+							</dt>
+							<dd>
+								Благодаря Федеральному Закону 442 Вы можете<span> уменьшить расходы по уходу </span>
+								за Вашими близкими!
+							</dd>
+						</dl>
+					</li>	
+					<li>
+						<dl>
+							<dt>
+								<h3>6. Окажем благотворительную помощь</h3>
+							</dt>
+							<dd>
+								Представляем своим пациентам по заявлению<span> памперсы и ТСР!</span>
+							</dd>
+						</dl>
+					</li>																					
+				</ol>
+			</div>
+
+			<div class="left-side mobil">
+				<h1>Патронажная служба</h1>
+				<ol>
+					<li>
+						<dl>
+							<dt>
+								<h3>1. Гарантия</h3>
+							</dt>
+							<dd>
+								АНО «Патронажная служба» находится<br>
+								<span>в реестре поставщиков социальных услуг</span>
+							</dd>
+						</dl>
+					</li>						
+					<li>
+						<dl>
+							<dt>
+								<h3>2. С Вами професиионалы</h3>
+							</dt>
+							<dd>
+								Все наши сотрудники проходят<br> <span>профессиональную подготовку</span>
+								согласно<br>профессиональному стандарту от<br>Минтруда России
+							</dd>
+						</dl>
+					</li>	
+					<li>
+						<dl>
+							<dt>
+								<h3>3. Найдем подход и поддержим</h3>
+							</dt>
+							<dd>
+								<span>Умеем найти контакт, </span>
+								понять<br>предпочтения, морально поддержать
+							</dd>
+						</dl>
+					</li>	
+					<li>
+						<dl>
+							<dt>
+								<h3>4. Освободим время для родственников</h3>
+							</dt>
+							<dd>
+								Избавим от рутинных дел и поможем<br><span>сконцентрировать внимание на<br>выздоровлении</span>
+								и более позитивном<br>общении членов семьи
+							</dd>
+						</dl>
+					</li>	
+					<li>
+						<dl>
+							<dt>
+								<h3>5. Поможем уменьшить расходы</h3>
+							</dt>
+							<dd>
+								Благодаря Федеральному Закону 442<br>Вы можете<span>уменьшить расходы по уходу<br></span>
+								за Вашими близкими!
+							</dd>
+						</dl>
+					</li>	
+					<li>
+						<dl>
+							<dt>
+								<h3>6. Окажем благотворительную помощь</h3>
+							</dt>
+							<dd>
+								Представляем своим пациентам по<br>заявлению<span>памперсы и ТСР!</span>
+							</dd>
+						</dl>
+					</li>																					
+				</ol>
+			</div>			
+
+			<div class="rigth-side">
+				<img src="{% static 'img/illustration.png' %}">
+			</div>
+		</section>
+
+		<section class="services-laptop" id="services-laptop">
+			<h1>
+				Наши цены и услуги
+			</h1>
+			<div class="services_details">	
+				<div class="service_details" id="detail_service-1-laptop" style="display: none;">
+					<div class="title_block">
+						<h3>Обязательный пакет</h3>
+						<h3 class="close-details">&#10006;</h3>
+					</div>	
+					<dl>
+						<dt><span>1. Консультирование по вопросам оказания патронажных услуг, в т.ч. по ФЗ-442</span></dt>
+						<div class="dd"><dd><li>Бесплатно</li></dd></div>
+					</dl>	
+					<dl>
+						<dt><span>2. Составление карты первичного осмотра (КПО) пациента с выездом на место</span></dt>
+						<div class="dd"><dd><li>300, транспортные расходы</li></dd></div>
+					</dl>										
+					<dl>
+						<dt><span>3. Составление индивидуальной программы ухода (ИПУ)</span></dt>
+						<div class="dd"><dd><li>50</li></dd></div>
+					</dl>
+					<dl>
+						<dt><span>4. Расчет и составление договора</span></dt>
+						<div class="dd"><dd><li>100</li></dd></div>
+					</dl>	
+					<dl>
+						<dt><span>5. Подбор патронажной сестры (волонтера)</span></dt>
+						<div class="dd"><dd><li>100</li></dd></div>
+					</dl>
+					<dl>
+						<dt><span>6. Пролонгация договора и составление ИПУ повторно</span></dt>
+						<div class="dd"><dd><li>50</li></dd></div>
+					</dl>
+					<dl>
+						<dt><span>7. Сопровождение договора</span></dt>
+						<div class="dd"><dd><li>30 р/день</li></dd></div>
+					</dl>
+					<dl>
+						<dt><span>8. Транспортные расходы (проезд в обе стороны)</span></dt>
+						<div class="dd"><dd><li>По согласованию</li></dd></div>
+					</dl>						
+				</div>	
+				<div class="service_details" id="detail_service-2-laptop" style="display: none;">
+					<div class="title_block">
+						<h3>Социально-медицинские услуги:</h3>
+						<h3 class="close-details">&#10006;</h3>
+					</div>
+					<div class="details">
+						<dl>
+							<dt><span>1. Нахождение с пациентом и социальное общение</span></dt>
+							<div class="dd"><dd><li>от 55р/ч + шкала тяжести состояния больного</li></dd></div>
+						</dl>
+						<dl>
+							<dt><span>2. Помощь в приготовлении пищи</span></dt>
+							<div class="dd"><dd><li>от 104р</li></dd></div>
+						</dl>	
+						<dl>
+							<dt><span>3. Помощь в кормлении готовой пищей</span></dt>
+							<div class="dd"><dd><li>от 104р</li></dd></div>
+						</dl>	
+						<dl>
+							<dt><span>4. Гигиена пациента, смена подгузника, профилактика пролежней</span></dt>
+							<div class="dd"><dd><li>от 250р</li></dd></div>
+						</dl>										
+						<dl>
+							<dt><span>5. Выполнение процедур (наблюдение за состоянием здоровья пациента )</span></dt>
+							<div class="dd"><dd><li>100р</li></dd></div>
+						</dl>
+						<dl>
+							<dt><span>6. Уход за колостомами, трахеостомами, дренажами, повязками, зондами</span></dt>
+							<div class="dd"><dd><li>По согласованию</li></dd></div>
+						</dl>
+						<dl>
+							<dt><span>7. Сопровождение пациента в медицинскую, социальную или иную организации</span></dt>
+							<div class="dd"><dd><li>50-100р</li></dd></div>
+						</dl>	
+						<dl>
+							<dt><span>8. Помощь в передвижении по дому</span></dt>
+							<div class="dd"><dd><li>По согласованию</li></dd></div>
+						</dl>
+						<dl>
+							<dt><span>9. Помощь в передвижении по улице</span></dt>
+							<div class="dd"><dd><li>По согласованию</li></dd></div>
+						</dl>
+						<dl>
+							<dt><span>10. Занятия с логопедом</span></dt>
+							<div class="dd"><dd><li>1500р/45мин</li></dd></div>
+						</dl>
+						<dl>
+							<dt><span>11. Приготовление дозы назначенных лекарственных средств, контроль их приема</span></dt>
+							<div class="dd"><dd><li>30р</li></dd></div>
+						</dl>
+						<dl>
+							<dt><span>12. Доставка материалов для проведения лабороторных исследований (анализы)</span></dt>
+							<div class="dd"><dd><li>По согласованию</li></dd></div>
+						</dl>
+						<dl>
+							<dt><span>13. Оказание содействия в проведении оздоровительных мероприятий</span></dt>
+							<div class="dd"><dd><li>По согласованию</li></dd></div>
+						</dl>
+						<dl>
+							<dt><span>14. Оказание содействия в оказании ритуальных услуг (обмывание)</span></dt>
+							<div class="dd"><dd><li>По согласованию</li></dd></div>
+						</dl>		
+						<dl>
+							<dt><span>15. Оказание содействия для госпитализации пациента в паллиативное отделение</span></dt>
+							<div class="dd"><dd><li>По согласованию</li></dd></div>
+						</dl>
+						<dl>
+							<dt><span>16. Оказание содействия для оформления инвалидности, разработки ИПРА инвалида</span></dt>
+							<div class="dd"><dd><li>По согласованию</li></dd></div>
+						</dl>						
+					</div>									
+				</div>		
+				<div class="service_details" id="detail_service-3-laptop" style="display: none;">
+					<div class="title_block">
+						<h3>Социально-бытовые услуги:</h3>
+						<h3 class="close-details">&#10006;</h3>
+					</div>	
+					<dl>
+						<dt><span>1. Оплата услуг ЖКХ и средств связи</span></dt>
+						<div class="dd"><dd><li>От 70р</li></dd></div>
+					</dl>
+					<dl>
+						<dt><span>2. Покупка  за счет средств получателя услуг и доставка на дом продуктов питания,<br> промышленных товаров первой необходимости, средств санитарии и гигиены, книг,<br> газет и пр. (до 7 кг за 1 заказ)</span></dt>
+						<div class="dd"><dd><li>По согласованию</li></dd></div>
+					</dl>
+					<dl>
+						<dt><span>3. Влажная уборка пола в комнате пациента</span></dt>
+						<div class="dd"><dd><li>От 104р</li></dd></div>
+					</dl>
+					<dl>
+						<dt><span>4. Генеральная уборка квартиры</span></dt>
+						<div class="dd"><dd><li>От 30 р/м2</li></dd></div>
+					</dl>
+					<dl>
+						<dt><span>5. Парикмахер с выездом на дом</span></dt>
+						<div class="dd"><dd><li>350</li></dd></div>
+					</dl>
+					<dl>
+						<dt><span>6. Мойка окон</span></dt>
+						<div class="dd"><dd><li>50 р/1 створка</li></dd></div>
+					</dl>																				
+				</div>
+				<div class="service_details" id="detail_service-4-laptop" style="display: none;">
+					<div class="title_block">
+						<h3>Социально-психологические услуги:</h3>
+						<h3 class="close-details">&#10006;</h3>
+					</div>
+					<dl>
+						<dt><span>1. Посещение пациента в целях морально-психологической поддержки врачом или психологом</span></dt>
+						<div class="dd"><dd><li>700р</li></dd></div>
+					</dl>	
+					<dl>
+						<dt><span>2. Обучение навыкам ухода за пациентом</span></dt>
+						<div class="dd"><dd><li>600р</li></dd></div>
+					</dl>
+					<dl>
+						<dt><span>3. Обучение членов семьи навыкам ухода за пациентом с выездом на дом</span></dt>
+						<div class="dd"><dd><li>500р</li></dd></div>
+					</dl>	
+					<dl>
+						<dt><span>4. Помощь в мытье пациента</span></dt>
+						<div class="dd"><dd><li>По согласованию</li></dd></div>
+					</dl>							
+				</div>	
+				<div class="service_details" style="display: none;">
+					<div class="title_block">
+						<h3></h3>
+						<h3 class="close-details">&#10006;</h3>						
+					</div>														
+				</div>		
+				<div class="service_details" id="detail_service-6-laptop" style="display: none;">
+					<div class="title_block">
+						<h3>Благотворительная помощь по заявке:</h3>
+						<h3 class="close-details">&#10006;</h3>
+					</div>	
+					<form method="post">{% csrf_token %}
+						<div class="text">
+									К нам довольно часто обращаются малообеспеченные граждане, которым необходимы памперсы и одноразовые пеленки, но им не на что их приобрести!<br>
+							<div>Если Вы нуждаетесь в помощи, напишите нам об этом!</div>
+						</div>
+						<div class="form-group">
+							<label>Имя и фамилия</label>
+							{{ help_form.name }}
+						</div>
+						<div class="form-group mail">
+							<label>Почтовый адрес:</label>
+							{{ help_form.email }}
+						</div>		
+						<div class="form-group number">
+							<label>Номер телефона:</label>
+							{{ help_form.number }}
+						</div>	
+						<div class="form-group need">
+							<label>Нуждаюсь в:</label>
+							{{ help_form.need }}
+						</div>
+						<div class="agree">
+							<div class="agree-in">
+								{{ help_form.agree }}
+								<label id="checkbox-label2" class="uncheck" name="agree" onclick="fun2()"> Согласие на обработку персональных данных</label>
+							</div>
+						</div>
+						<div class="button">
+							<button>Помогите!</button>
+						</div>				
+					</form>							
+				</div>
+				<div class="service_details" style="display: none;">
+					<div class="title_block">
+						<h3>Обязательный пакет</h3>
+						<h3 class="close-details">&#10006;</h3>
+					</div>							
+				</div>			
+				<div class="service_details" id="detail_service-8-laptop" style="display: none;">
+					<div class="title_block">
+						<h3>Прокат технических средств реабилитации</h3>
+						<h3 class="close-details">&#10006;</h3>
+					</div>
+					<dl>
+						<dt><span>1. Прокат технических средств реабилитации (трости, ходунки, кресло-стул<br>с санитарным оснащением, кресло-коляска, костыли, противопролежневый матрас и пр.)</span></dt>
+						<div class="dd"><dd><li>30 р/день, (договор на прокат)</li></dd></div>
+					</dl>														
+				</div>
+			</div>	
+			<div class="services">
+
+				<div class="service-laptop" id="service-1-laptop">
+					<img src="{% static 'img/services/laptop/1.png' %}">
+					<p class="title"><span>Обязательный<br>пакет</span></p>									
+				</div>																														
+				<div class="service-laptop" id="service-2-laptop">						
+					<img src="{% static 'img/services/laptop/2.png' %}">
+					<p class="title"><span>Социально-<br>медицинские</span></p>						
+				</div>
+				<div class="service-laptop" id="service-3-laptop">					
+					<img src="{% static 'img/services/laptop/3.png' %}">
+					<p class="title"><span>Социально-<br>бытовые</span></p>							
+				</div>
+				<div class="service-laptop not-visible" id="service-5-laptop">					
+					<img src="{% static 'img/services/laptop/5.png' %}">
+					<p class="title"><span>Школа<br>патронажа</span></p>					
+				</div>				
+				<div class="service-laptop" id="service-4-laptop">						
+					<img src="{% static 'img/services/laptop/4.png' %}">
+					<p class="title"><span>Социально-<br>психологические</span></p>			
+				</div>
+<!-- 				<div class="service-laptop" id="service-6-laptop">				
+
+					<img src="{% static 'img/services/laptop/6.png' %}">
+					<p class="title"><span>Благ.помощь<br>по заявке</span></p>	
+				</div> -->
+				<div class="service-laptop not-visible" id="service-7-laptop">						
+					<img src="{% static 'img/services/laptop/7.png' %}">
+					<p class="title"><span>Курсы<br>для родных</span></p>					
+				</div>
+				<div class="service-laptop" id="service-8-laptop">					
+					<img src="{% static 'img/services/laptop/8.png' %}">
+					<p class="title"><span>Прокат<br>ТСР</span></p>						
+				</div>																												
+			</div>
+
+		</section>
+
+		<section class="services-mob" id="services-mob">	
+			<h1>
+				Наши цены и услуги
+			</h1>					
+			<div class="service" id="service-1-mob">
+				<div class="service_details" id="detail_service-1-mob" style="display: none;">
+					<div class="title_block">
+						<h3>Обязательный пакет</h3>
+					</div>
+					<ol>
+						<span>График работы</span>
+						<li>- На дому (день с 15 до 24, ночь, сутки)</li>
+						<li>- В больнице (день с 15 до 24, ночь, сутки)</li>
+					</ol>	
+					<ol>
+						<span>1. Консультирвоание по вопросам оказания патронажных услуг, в т.ч. по ФЗ-442</span>
+						<li>- Бесплатно</li>
+					</ol>		
+					<ol>
+						<span>2. Составление карты первичного осмотра(КПО) пациента с выездом на место</span>
+						<li>- 300, транспортные расходы</li>
+					</ol>	
+					<ol>
+						<span>3. Составление индивидуальной программы ухода(ИПУ)</span>
+						<li>- 50</li>
+					</ol>	
+					<ol>
+						<span>4. Расчет и составление договора</span>
+						<li>- 100</li>
+					</ol>											
+					<ol>
+						<span>5. Подбор патронажной сестры(волонтера)</span>
+						<li>- 100</li>
+					</ol>	
+					<ol>
+						<span>6. Пролонгация договора и  составление ИПУ посторно</span>
+						<li>- 50</li>
+					</ol>	
+					<ol>
+						<span>7. Сопровождение договора</span>
+						<li>- 30р/день</li>
+					</ol>
+					<ol>
+						<span>8. Транспортные расходы (проезд в обе стороны)</span>
+						<li>- по согласованию</li>
+					</ol>																						
+				</div>									
+				<img src="{% static 'img/services/1.png' %}">
+				<span class="title">Обязательный пакет</span>
+			</div>
+			<div class="service" id="service-2-mob">
+				<div class="service_details" id="detail_service-2-mob" style="display: none;">
+					<div class="title_block">
+						<h3>Социально-медицинские услуги:</h3>
+					</div>
+					<ol>
+						<span>1. Нахождение с пациентом и социальное общение:</span>
+						<li>- от 55р/ч + шкала тяжести состояния больного</li>
+					</ol>	
+					<ol>
+						<span>2. Помощь в приготовлении пищи</span>
+						<li>- от 104р</li>
+					</ol>	
+					<ol>
+						<span>3. Помощь в кормлении готовой пищей</span>
+						<li>- от 104р</li>
+					</ol>
+					<ol>
+						<span>4. Гигиена пациента, смена подгузника, профилактика пролежней</span>
+						<li>- от 250р</li>
+					</ol>
+					<ol>
+						<span>5. Выполнение процедур (наблюдение за состоянием здоровья пациента )</span>
+						<li>- 100р</li>
+					</ol>
+					<ol>
+						<span>6. Уход за колостомами, трахеостомами, дренажами, повязками, зондами</span>
+						<li>- По согласованию</li>
+					</ol>
+					<ol>
+						<span>7. Сопровождение пациента в медицинскую, социальную или иную организации</span>
+						<li>- 50-100р</li>
+					</ol>
+					<ol>
+						<span>8. Помощь в передвижении по дому</span>
+						<li>- По согласованию</li>
+					</ol>	
+					<ol>
+						<span>9. Помощь в передвижении по улице</span>
+						<li>- По согласованию</li>
+					</ol>
+					<ol>
+						<span>10. Занятия с логопедом</span>
+						<li>- 1500р/45мин</li>
+					</ol>	
+					<ol>
+						<span>11. Приготовление дозы назначенных лекарственных средств, контроль их приема</span>
+						<li>- 30р</li>
+					</ol>																													<ol>
+						<span>12. Доставка материалов для проведения лабороторных исследований (анализы)</span>
+						<li>- По согласованию</li>
+					</ol>	
+					<ol>
+						<span>13. Оказание содействия в проведении оздоровительных мероприятий</span>
+						<li>- По согласованию</li>
+					</ol>			
+					<ol>
+						<span>14. Оказание содействия в оказании ритуальных услуг (обмывание)</span>
+						<li>- По согласованию</li>
+					</ol>	
+					<ol>
+						<span>15. Оказание содействия для госпитализации пациента в паллиативное отделение</span>
+						<li>- По согласованию</li>
+					</ol>	
+					<ol>
+						<span>16. Оказание содействия для оформления инвалидности, разработки ИПРА инвалида</span>
+						<li>- По согласованию</li>
+					</ol>																				
+				</div>						
+				<img src="{% static 'img/services/2.png' %}">
+				<span class="title">Социально-медицинские</span>
+			</div>
+			<div class="service" id="service-3-mob">
+				<div class="service_details" id="detail_service-3-mob" style="display: none;">
+					<div class="title_block">
+						<h3>Социально-бытовые услуги:</h3>
+					</div>
+					<ol>
+						<span>1. Оплата услуг ЖКХ и средств связи</span>
+						<li>- От 70р</li>
+					</ol>	
+					<ol>
+						<span>2. Покупка  за счет средств получателя услуг и доставка на дом продуктов питания промышленных товаров первой необходимости, средств санитарии и гигиены, книг, газет и пр. (до 7 кг за 1 заказ)</span>
+						<li>- По согласованию</li>
+					</ol>	
+					<ol>
+						<span>3. Влажная уборка пола в комнате пациента</span>
+						<li>- От 104р</li>
+					</ol>	
+					<ol>
+						<span>4. Генеральная уборка квартиры</span>
+						<li>- От 30 р/м2</li>
+					</ol>		
+					<ol>
+						<span>5. Парикмахер с выездом на дом</span>
+						<li>- 350р</li>
+					</ol>	
+					<ol>
+						<span>6. Мойка окон</span>
+						<li>- 50 р/1 створка</li>
+					</ol>																																				
+				</div>						
+				<img src="{% static 'img/services/3.png' %}">
+				<span class="title">Социально-бытовые</span>
+			</div>
+			<div class="service" id="service-4-mob">
+				<div class="service_details" id="detail_service-4-mob" style="display: none;">
+					<div class="title_block">
+						<h3>Социально-психологические услуги:</h3>
+					</div>
+					<ol>
+						<span>1. Посещение пациента в целях морально-психолоческой поддержки врачом или психологом</span>
+						<li>- 700р</li>
+					</ol>	
+					<ol>
+						<span>2. Обучение навыкам ухода за пациентом</span>
+						<li>- 600р</li>
+					</ol>	
+					<ol>
+						<span>3. Обучение членов семьи навыкам ухода за пациентом с выездом на дом</span>
+						<li>- 500р</li>
+					</ol>
+					<ol>
+						<span>4. Помощь в мытье пациента</span>
+						<li>- По согласованию</li>
+					</ol>																														
+				</div>						
+				<img src="{% static 'img/services/4.png' %}">
+				<span class="title">Социально-психологические</span>
+			</div>
+			<div class="service" id="service-5-mob">
+				<div class="service_details" id="detail_service-5-mob" style="display: none;">
+					<div class="title_block">
+						<h3></h3>
+					</div>
+					<ol>
+						<span></span>
+						<li></li>
+					</ol>																						
+				</div>						
+				<img src="{% static 'img/services/5.png' %}">
+				<span class="title">Школа патронажа</span>
+			</div>			
+			<div class="service" id="service-6-mob">
+				<div class="service_details" id="detail_service-6-mob" style="display: none;">
+					<div class="title_block">
+						<h3></h3>
+					</div>
+					<ol>
+						<span></span>
+						<li></li>
+					</ol>																					
+				</div>						
+				<img src="{% static 'img/services/6.png' %}">
+			<span class="title">Благ.помощь по заявке</span>
+			</div>
+			<div class="service" id="service-7-mob">
+				<div class="service_details" id="detail_service-7-mob" style="display: none;">
+					<div class="title_block">
+						<h3></h3>
+					</div>
+					<ol>
+						<span></span>
+						<li></li>
+                    </ol>
+				</div>										
+				<img src="{% static 'img/services/7.png' %}"> 
+				<span class="title">Курсы для родных</span>
+			</div>
+			<div class="service" id="service-8-mob">
+				<div class="service_details" id="detail_service-8-mob" style="display: none;">
+					<div class="title_block">
+						<h3>Прокат технических средств реабилитации</h3>
+					</div>
+					<ol>
+						<span>1. Прокат технических средств реабилитации (трости, ходунки, кресло-стул<br>с санитарным оснащением, кресло-коляска, костыли, противопролежневый матрас и пр.)</span>
+						<li>- 30 р/день, (договор на прокат)</li>
+					</ol>																					
+				</div>						
+				<img src="{% static 'img/services/8.png' %}">
+				<span class="title">Прокат ТСР</span>
+			</div>																												
+		</section>
+
+		<section class="about-us" id="about-us">
+			<div class="left-side">
+				<h1>
+					О нас				
+				</h1>
+				<p>
+					«Ничего нет более и совершеннее среди добродетелей, как любовь к ближнему»<br>
+					(с) Преподобный Иустин
+				</p>
+				<p>
+					С 2002 года <span>АНО «Патронажная служба» трудится, чтобы помочь</span> людям справиться с болезнью, одиночеством, восстановиться физически, духовно и социально.<br>
+				</p>									
+				<p>
+					С 2015 г. АНО «Патронажная служба» находится в реестре поставщиков социальных услуг по ФЗ -442. И мы, единственная организация в городе Брянске, среди частных юридических лиц, работающая по этому закону среди взрослого населения. <br>
+					И благодаря этому Вы можете <span>уменьшить расходы по уходу</span> за Вашими близкими!
+				</p>
+				<p>
+					Сегодня уже <span>более 150 патронажных сестер готовы прийти на помощь </span> по всей территории города Брянска в больницах и на дому.
+				</p>
+				<p>
+					<span>Наша команда индивидуально подходит к каждому больному, </span> учитывая возраст, заболевание, а также душевное состояние.
+				</p>
+				<p>
+					Мы не только подбираем патронажную сестру, но и <span>контролируем проводимые мероприятия, осуществляем выездные проверки. </span>Всегда готовы без каких-либо условий и доплат заменить  патронажную сестру по первому требованию.
+				</p>	
+				<p>
+					Многолетний опыт работы позволяет нам осуществлять свою <span>помощь пациентам с различными заболеваниями.</span>
+				</p>	
+				<p>
+					<span>Вы всегда можете положиться на наш опыт, </span>профессионализм и высокий уровень ответственности.
+				</p>	
+				<p>
+					<span>АНО &#171Патронажная служба&#187 работает для Вас, </span>наши дорогие и любимые клиенты!.
+				</p>	
+				<p>
+					<span>Мы разделяем Вашу боль и радуемся результатам совместных усилий! Здоровья Вам и благополучия! </span>
+				</p>
+			</div>		
+			<div class="mobil">
+				<h1>
+					О нас				
+				</h1>	
+				<p>
+					«Ничего нет более и совершеннее среди добродетелей, как любовь к ближнему»<br>
+					(с) Преподобный Иустин
+				</p>			
+				<p>
+					С 2002 года <span>АНО «Патронажная служба» трудится, чтобы помочь</span> людям справиться с болезнью, одиночеством, восстановиться физически, духовно и социально.<br>
+				</p>					
+				<p>
+					С 2015 г. АНО «Патронажная служба» находится в реестре поставщиков социальных услуг по ФЗ -442. И мы, единственная организация в городе Брянске, среди частных юридических лиц, работающая по этому закону среди взрослого населения. <br>
+					И благодаря этому Вы можете <span>уменьшить расходы по уходу</span> за Вашими близкими!
+				</p>
+				<p>
+					Сегодня уже <span>более 150 патронажных сестер готовы придти на помощь </span> по всей территории города Брянска в больницах и на дому.
+				</p>
+				<p>
+					<span>Наша команда индивидуально подходит к каждому больному, </span> учитывая возраст, заболевание, а также душевное состояние.
+				</p>
+				<p>
+					Мы не только подбираем патронажную сестру, но и <span>контролируем проводимые мероприятия, осуществляем выездные проверки. </span>Всегда готовы без каких-либо условий и доплат заменить  патронажную сестру по первому требованию.
+				</p>	
+				<p>
+					Многолетний опыт работы позволяетнам нам осуществлять свою <span>помощь пациентам с различными заболеваниями.</span>
+				</p>	
+				<p>
+					<span>Вы всегда можете положиться на наш опыт, </span>профессионализм и высокий уровень ответственности.
+				</p>	
+				<p>
+					<span>АНО &#171Патронажная служба&#187 работает для Вас, </span>наши дорогие и любимые клиенты!.
+				</p>	
+				<p>
+					<span>Мы разделяем Вашу боль и радуемся результатам совместных усилий! Здоровья Вам и благополучия! </span>
+				</p>
+			</div>														
+		</section>
+
+		<section class="responses-list" id="responses-list">
+
+			<h1>Отзывы наших клиентов</h1>
+			<img src="{% static 'img/responses/1.jpg' %}" id="image-1-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/12.jpg' %}" id="image-2-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/3.jpg' %}" id="image-3-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/4.jpg' %}" id="image-4-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/5.jpg' %}" id="image-5-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/6.jpg' %}" id="image-6-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/7.jpg' %}" id="image-7-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/8.jpg' %}" id="image-8-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/9.jpg' %}" id="image-9-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/10.jpg' %}" id="image-10-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/11.jpg' %}" id="image-11-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/12.jpg' %}" id="image-12-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/13.jpg' %}" id="image-13-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/14.jpg' %}" id="image-14-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/15.jpg' %}" id="image-15-open" class="open-resp" style="display: none;">
+			<img src="{% static 'img/responses/16.jpg' %}" id="image-16-open" class="open-resp" style="display: none;">
+			<div class="responses">
+				<div class="1" id="left-click">
+					sdf
+				</div>
+				<div class="resp">
+					<div id="responsive-block-1" class="resp-block">
+						<div class="response response-1">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/1.jpg' %}" id="image-1" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Чистова И.В.</h3>
+									</div>
+									<div class="date">
+										15.07.2002
+									</div>
+								</div>
+								<p>&#171Выражаю огромную благодарность всем работникам Патронажной службы, обеспечившим уход за моей больной матерью в условиях стационара онкологического диспансера после сложной операции</p>
+								<p class="ps">Желаю службе успехов в ее благородном и нелегком деле, а ее работникам – здоровья и благополучия!&#187</p>
+							</div>
+						</div>
+						<div class="response response-2">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/2.jpg' %}" id="image-2" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Нечаева С.С.</h3>
+									</div>
+									<div class="date">
+										10.02.2004
+									</div>
+								</div>
+								<p>&#171Большое человеческое спасибо работникам патронажной службы Малик Г.И., Бортко Е.В., Бородину А. за помощь в уходе за моим тяжелобольным отцом Богдановым Сергеем Семеновичем.</p>
+								<p class="ps">Эти люди взвалили на свои плечи тяжелый труд ежедневного ухода за прекрасным человеком.&#187</p>
+							</div>
+						</div>	
+					</div>
+					<div id="responsive-block-2" class="resp-block">
+						<div class="response response-3" id="image-3" class="responsive-small">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/3.jpg' %}">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Турчинина А.А.</h3>
+									</div>
+									<div class="date">
+										20.12.2004
+									</div>
+								</div>
+								<p>&#171Выражаю огромную благодарность патронажной медсестре Бураковой Галине Ивановне за нежность, заботу, терпимость, проявленное в период ухода за моей мамой Турчининой Людмилой Дмитриевной.</p>
+								<p class="ps">С уважением&#187</p>
+							</div>
+						</div>	
+						<div class="response response-4">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/4.jpg' %}" id="image-4" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Семья Ахимоновых</h3>
+									</div>
+									<div class="date">
+										Октябрь 2015
+									</div>
+								</div>
+								<p>&#171Несколько лет обслуживаемся Вами, в АНО «Патронажная служба». Неизменно благодарны этим людям за чуткое отношение к нашей Маме. Только слова благодарности и большое спасибо всем сиделкам, администрации службы.</p>
+								<p class="ps">Спасибо всем всем и низкий поклон&#187</p>
+							</div>
+						</div>	
+					</div>
+					<div id="responsive-block-3" class="resp-block">
+						<div class="response response-5">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/5.jpg' %}" id="image-5" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Нидбайкин</h3>
+									</div>
+									<div class="date">
+										15.04.2016
+									</div>
+								</div>
+								<p>&#171Выражаю Вам благодарность за оказанную мне помощь!</p>
+								<p class="ps">С моей мамой никто не мог справиться, так как у нее тяжелое заболевание. Но у Ваших сотрудников хватило терпения и умения в уходе за мамой.</p>
+								<p class="ps">Большое Вам человеческое Спасибо!&#187</p>
+							</div>
+						</div>	
+						<div class="response response-6">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/6.jpg' %}" id="image-6" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>семья Ждановых.</h3>
+									</div>
+									<div class="date">
+										Ноябрь 2016
+									</div>
+								</div>
+								<p>&#171Хотим выразить слова благодарности в Ваш адрес, спасибо за хороший уход за нашей мамой Серегиной Зинаидой Матвеевной.</p>
+								<p class="ps">Спасибо сиделкам и администрации АНО «Патронажная служба»</p>
+							</div>
+						</div>
+					</div>
+					<div id="responsive-block-4" class="resp-block">
+						<div class="response response-7" id="image-7" class="responsive-small">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/7.jpg' %}">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Данилюк Д.Я.</h3>
+									</div>
+									<div class="date">
+									</div>
+								</div>
+								<p>&#171Выражаю огромную благодарность за помощь и внимание Ваших работников, за их умение и терпение.</p>
+								<p class="ps">Благодаря Вашим сотрудникам и Вам мы продолжаем жить. Желаю Вам здоровья и успехов в Вашем нелегком труде на благо людей&#187</p>
+							</div>
+						</div>	
+						<div class="response response-8">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/8.jpg' %}" id="image-8" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>В.И. Филин</h3>
+									</div>
+									<div class="date">
+										15.05.2017г.
+									</div>
+								</div>
+								<p>&#171Спасибо Вам и Вашей службе За добрые дела, За хороший уход за моей мамой. Я доверил Вам самое дорогое, что у меня есть – МАМУ, Филину Р.И., И Вы, и Ваши работники досмотрели ее достойно. Вы стали частью нашей семьи.</p>
+								<p class="ps">Долгих лет жизни Вам и Вашей организации на благо общества.&#187</p>
+							</div>
+						</div>	
+					</div>
+					<div id="responsive-block-5" class="resp-block">
+						<div class="response response-9">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/9.jpg' %}" id="image-9" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Н.В. Кузнецов</h3>
+									</div>
+									<div class="date">
+										30.01.2017
+									</div>
+								</div>
+								<p>&#171Я, Кузнецов Николай Викторович, выражаю благодарность АНО «Патронажная служба» за уход и заботу о моем дедушке.</p>
+								<p class="ps">За внимательность, психологическую поддержку, доброе отношение! Сотрудникам «Патронажной службы» - огромное спасибо! Уже в течение 3-х лет Ваша организация помогает мне. Надеюсь на дальнейшее сотрудничество!&#187</p>
+							</div>
+						</div>
+						<div class="response response-10">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/10.jpg' %}" id="image-10" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Л.С. Жданова</h3>
+									</div>
+									<div class="date">
+										29.10.2018
+									</div>
+								</div>
+								<p>&#171За многолетнюю работу, качественное обслуживание на дому. Выражаем благодарность!</p>
+								<p class="ps">С уважением, здоровья, успехов.&#187</p>
+							</div>
+						</div>
+					</div>
+					<div id="responsive-block-6" class="resp-block">
+						<div class="response response-11">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/11.jpg' %}" id="image-11" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>И.Н. Новикова</h3>
+									</div>
+									<div class="date">
+										29.10.2018
+									</div>
+								</div>
+								<p>&#171Выражаю благодарность всем сотрудникам службы. Большое спасибо за внимание, понимание и поддержку.</p>
+								<p class="ps">Здоровья всем и всего самого наилучшего.&#187</p>
+							</div>
+						</div>	
+						<div class="response response-12">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/12.jpg' %}" id="image-12" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Александр Мазарский</h3>
+									</div>
+									<div class="date">
+										29.10.2018
+									</div>
+								</div>
+								<p>&#171Выражаю огромную благодарность коллективу АНО «Патронажной службы» за оперативность и высокую квалификацию работников.</p>
+								<p class="ps">Процветания и терпения.&#187</p>
+							</div>
+						</div>	
+					</div>
+					<div id="responsive-block-7" class="resp-block">
+						<div class="response response-13">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/13.jpg' %}" id="image-13" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Л.В. Калашникова</h3>
+									</div>
+									<div class="date">
+										20.02.2018
+									</div>
+								</div>
+								<p>&#171Выражаю благодарность сотрудникам Патронажной службы за профессионализм, участие, сердечность в обслуживании своих пациентов.</p>
+								<p class="ps">Желаю всем Здоровья, процветания, успехов во всех начинаниях. Когда есть такие сотрудники, мы можем спокойно жить!&#187</p>
+							</div>
+						</div>	
+						<div class="response response-14">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/14.jpg' %}" id="image-14" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Л.Д. Приходько</h3>
+									</div>
+									<div class="date">
+										03.04.2018 
+									</div>
+								</div>
+								<p>&#171Светлана, доброе утро! И еще раз хочу поблагодарить Вас и Вашу команду за добрые дела и помощь в уходе за больными людьми.</p>
+								<p class="ps">Вы – молодцы!<br>Здоровья Вам и Вашим близким!&#187</p>
+							</div>
+						</div>
+					</div>
+					<div id="responsive-block-8" class="resp-block">
+						<div class="response response-15">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/15.jpg' %}" id="image-15" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Самутина Н.А.</h3>
+									</div>
+									<div class="date">
+										01.03.2018
+									</div>
+								</div>
+								<p>&#171Уважаемая Ирина Анатольевна!<br>Беда привела нашу семью за помощью к Вам.<br>Бесконечно благодарны всей Вашей службе за отзывчивость, быстрое решение вопросов.<br>Особенно хотим сказать огромное спасибо патронажной сестре Людмиле Николавне Паровышник, которая выхаживает нашу маму Самутину Зинаиду Васильевну, как родного человека.<br>Еще раз спасибо всем –всем Вам!&#187</p>
+							</div>
+						</div>
+						<div class="response response-16">
+							<div class="image">
+								<span class="open-response">Читать оригинал</span>
+								<img src="{% static 'img/responses/16.jpg' %}" id="image-16" class="responsive-small">
+							</div>
+							<div class="body">
+								<div class="title">
+									<div class="name">
+										<h3>Телегина И.В.</h3>
+									</div>
+									<div class="date">
+										21.03.2018
+									</div>
+								</div>
+								<p>&#171Спасибо большое, что Вы есть!!!<br>Выражаю Патронажной службе, ее директору Вещенковой И.А. и, конкретно, Безруковой Татьяне Ивановне благодарность за оказанную помощь по уходу за моей мамой в мое отсутствие.<br>Спасибо, что есть такие люди, на которых можно положиться в сложных ситуациях<br>Всем Вам здоровья, терпения, благополучия!!! <br>Еще раз СПАСИБО!!!&#187</p>
+							</div>
+						</div>
+					</div>		
+				</div>	
+				<div class="1" id="rigth-click">
+					sdf
+				</div>	
+			</div>
+			
+			<button id="more-response-mob" class=1>Еще отзывы!</button>
+		</section>
+
+		<section class="parthners" id="parthners">
+			<h1>Те, кто с нами сотрудничает</h1>
+			<div class="block-parthners">
+				<div class="parthner">
+					<div class="logo">
+						<img src="{% static 'img/logos/1.svg' %}">
+					</div>
+					<div class="text">
+						<p class="name">Благотворительный фонд помощи<br>пожилым людям и инвалидам</p>
+						<p class="link">
+							<a href="https://starikam.org/">starikam.org</a>
+						</p>
+					</div>
+				</div>
+				<div class="parthner">
+					<div class="logo">
+						<img src="{% static 'img/logos/2.svg' %}">
+					</div>
+					<div class="text">
+						<p class="name">Департамент семьи, социальной<br> и демографической политики</p>
+						<p class="link">
+							<a href="http://uszn032.ru//">uszn032.ru</a>
+						</p>
+					</div>
+				</div>		
+				<div class="parthner">
+					<div class="logo">
+						<img src="{% static 'img/logos/3.svg' %}">
+					</div>
+					<div class="text">
+						<p class="name">Брянская городская<br> организация</p>
+						<p class="link">
+							<a href="http://bga32.ru/">bga32.ru</a>
+						</p>
+					</div>
+				</div>	
+				<div class="parthner">
+					<div class="logo">
+						<img src="{% static 'img/logos/4.svg' %}">
+					</div>
+					<div class="text">
+						<p class="name">Брянская областная <br>больница №1</p>
+						<p class="link">
+							<a href="http://xn--1-9sba5c.xn--p1ai/">боб1.рф</a>
+						</p>
+					</div>
+				</div>	
+				<div class="parthner">
+					<div class="logo">
+						<img src="{% static 'img/logos/5.svg' %}">
+					</div>
+					<div class="text">
+						<p class="name">Брянская городская <br>больница №1</p>
+						<p class="link">
+							<a href="http://1bgb.ru/">1bgb.ru</a>
+						</p>
+					</div>
+				</div>														   
+				<div class="parthner">
+					<div class="logo">
+						<img src="{% static 'img/logos/6.svg' %}">
+					</div>
+					<div class="text">
+						<p class="name">Брянская городская <br>больница №4</p>
+						<p class="link">
+							<a href="http://bolnica4.ru/">bolnica4.ru</a>
+						</p>
+					</div>
+				</div>		
+			</div>
+		</section>
+
+		<section class="charity" id="charity">
+			<h1>Благотворительность</h1>
+			<div class="part first-part">
+				<div class="left-side left-side-first">
+					<p>
+						В этом году, как и каждый Новый год, АНО «Патронажная служба» подарила праздник и радость своим подопечным. Приезд Деда Мороза и Снегурочки – праздник не только для маленьких, но и для пожилых людей. Он вносит тепло и радость в их повседневный быт.
+					</p>
+					<p>
+						Бабушки и дедушки, получая подарки, благодарили за оказанную помощь, заботу и внимание.<br> "Очень приятно, спасибо за внимание с Вашей стороны и благодарность за теплое и сердечное отношение"; "Большое спасибо за работу, за то, что нас не забываете"; "Спасибо за заботу, доброту, поддержку. Благодаря Вам, я не чувствую себя одинокой" – все это лишь некоторые слова благодарности пожилых людей за проявленное к ним внимание.<br>"Быть волшебником прекрасно!"
+					</p>
+				</div>
+				<div class="img">
+					<img src="{% static 'img/charity/new_year.jpg' %}">
+				</div>
+			</div>
+			<div class="part">
+				<div class="left-side">
+					<h1>Мы помогаем</h1>
+					<p>
+						Если Вам необходимы памперсы и одноразовые пеленки, но Вам не на что их приобрести, сообщите нам об этом!
+					</p>
+					<form class="help-you" method="post"> {% csrf_token %}
+						<div class="inside">
+							<div class="form-group">
+								<label>Имя и фамилия:</label>
+								{{ need_help_form.name }}
+							</div>
+							<div class="form-group">
+								<label class="number">Номер телефона:</label>
+								{{ need_help_form.number }}
+							</div>		
+							<div class="form-group">
+								<label class="email">Почтовый адрес:</label>
+								{{ need_help_form.email }}
+							</div>	
+							<div class="form-group">
+								<label class="need">Нуждаюсь в:</label>
+								{{ need_help_form.need }}
+							</div>
+							<div class="agree">
+								{{ need_help_form.agree }}
+								<label id="checkbox-for_me" class="uncheck" name="agree" onclick="fun3()">Согласие на обработку персональных данных</label>
+							</div>
+							<button>Приму помощь!</button>	
+						</div>
+					</form>
+					<div class="doc">
+						<a href="https://vk.com/away.php?to=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F12ooxnLcX9NlKP9qLUzMQcbqObTD1BuY5OtZ4BKAJX08%2Fedit%3Fusp%3Dsharing&cc_key="><img src="{% static 'img/charity/folder_blue.svg' %}"></img></a>
+						<a class="a" href="https://vk.com/away.php?to=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F12ooxnLcX9NlKP9qLUzMQcbqObTD1BuY5OtZ4BKAJX08%2Fedit%3Fusp%3Dsharing&cc_key=">Уже помогли этим людям!</a>
+					</div>
+				</div>
+				<div class="rigth-side">
+					<h1>Помочь нам</h1>
+					<p>Вы можете передать нам ненужные памперсы, средства ухода за лежачими больными, ходунки, костыли и т.д.</p>
+					<form class="help-us" method="post">{% csrf_token %}
+						<div class="inside">
+							<div class="form-group">
+								<label>Имя и фамилия:</label>
+								{{ can_help_form.name }}
+							</div>
+							<div class="form-group">
+								<label class="number">Номер телефона:</label>
+								{{ can_help_form.number }}
+							</div>		
+							<div class="form-group">
+								<label class="email">Почтовый адрес:</label>
+								{{ can_help_form.email }}
+							</div>	
+							<div class="form-group">
+								<label class="help">Помогу в:</label>
+								{{ can_help_form.help }}
+							</div>
+							<div class="agree">
+								{{ can_help_form.agree }}
+								<label id="checkbox-for_us" class="uncheck" name="agree" onclick="fun4()">Согласие на обработку персональных данных</label>
+							</div>						
+							<button>Помогу Вам!</button>
+						</div>	
+					</form>	
+					<div class="doc">
+						<a href="https://vk.com/away.php?to=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1pJdNI5ZpM5sMeQLCqjLK4icqX8OHxrqit8IUbsFsqu0%2Fedit%3Fusp%3Dsharing&cc_key="><img src="{% static 'img/charity/folder_orange.svg' %}"></img></a>
+						<a class="a" href="https://vk.com/away.php?to=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1pJdNI5ZpM5sMeQLCqjLK4icqX8OHxrqit8IUbsFsqu0%2Fedit%3Fusp%3Dsharing&cc_key=">Спасибо за помощь!</a>
+					</div>								
+				</div>				
+			</div>
+		</section>
+
+		<section class="vacancies" id="vacancies">
+			<div class="left-side">
+				<h1>Вакансии патронажной сестры</h1>
+				<div class="text">
+					<p class="first">
+						АНО "Патронажная служба"
+						<span>приглашает добрых людей для работы по уходу</span> за больными, престарелыми и инвалидами в больницах и на дому
+					</p>
+					<p>
+						<span>Ждем Вас на собеседование в наш офис </span>на проспекте Станке Димитрова 86 с понедельника - по пятницу (9:00 - 16:00)
+					</p>
+					<div class="requirements">
+						<h3>Требования:</h3>
+						<ul>
+							<li>- Наличие опыта работы по уходу за больными и желания помочь людям и/или наличие медицинского образования</li>
+							<li>- Добропорядочность, честность, трудолюбие, аккуратность и четкость</li>
+							<li>- Заботливое и уважительное отношение к подопечному</li>
+						</ul>
+					</div>
+					<div class="obligations">
+						<h3>Обязанности:</h3>
+						<ul>
+							<li>1. Смена постельного и нательного белья больного</li>
+							<li>2. Помощь Больному в принятии пищи</li>
+							<li>3. Несложная уборка помещения </li>
+							<li>4. Приготовление пищи</li>
+							<li>5. Отслеживание своевременного приема лекарств Больным</li>
+							<li>6. Помощь Больному в отправлении естественных потребностей</li>
+							<li>7. Помощь Больному в совершении гигиенических процедур</li>
+							<li>8. Контроль за состоянием больного</li>
+							<li>9. Проветривание помещения</li>
+							<li>10. Обработка пролежней</li>
+						</ul>
+					</div>										
+				</div>
+			</div>
+			<div class="rigth-side">
+				<img src="{% static 'img/sestra.png' %}">
+			</div>
+
+			<div class="mobil">
+				<div class="one">
+				<h1>Вакансии патронажной сестры</h1>
+					<div class="text">
+						<p>
+							АНО "Патронажная служба"
+							<span>приглашает добрых людей для работы по уходу</span> за больными, престарелыми и инвалидами в больницах и на дому
+						</p>
+						<p>
+							<span>Ждем Вас на собеседование в наш офис<br></span>на проспекте Станке Димитрова 86 с понедельника - по пятницу (9:00 - 16:00)
+						</p>
+					</div>
+				</div>					
+				<div class="two">
+					<img src="{% static 'img/sestra.png' %}">
+				</div>
+				<div class="three">
+					<div class="requirements">
+						<h3>Требования:</h3>
+						<ul>
+							<span>
+								<li>- Наличие опыта работы по уходу за больными и желания помочь людям<br> и/или наличие медицинского образования</li>
+								<li>- Добропорядочность, честность, трудолюбие, аккуратность и четкость</li>
+								<li>- Заботливое и уважительное отношение к подопечному</li>
+							</span>
+						</ul>
+					</div>
+					<div class="obligations">
+						<h3>Обязанности:</h3>
+						<ul>
+							<li>1. Смена постельного и нательного белья больного</li>
+							<li>2. Помощь Больному в принятии пищи</li>
+							<li>3. Несложная уборка помещения </li>
+							<li>4. Приготовление пищи</li>
+							<li>5. Отслеживание своевременного приема лекарств Больным</li>
+							<li>6. Помощь Больному в отправлении естественных потребностей</li>
+							<li>7. Помощь Больному в совершении гигиенических процедур</li>
+							<li>8. Контроль за состоянием больного</li>
+							<li>9. Проветривание помещения</li>
+							<li>10. Обработка пролежней</li>
+						</ul>
+					</div>										
+				</div>
+			</div>				
+			</div>
+		</section>
+
+		<section class="contacts" id="contacts">
+			<h1>Контакты</h1>
+			<div class="block-contacts">
+				<div class="contact">
+					<img src="{% static 'img/contacts/Irina.jpg' %}">
+					<h3>Ирина<br>Вещенкова</h3>
+					<p class="posititon">Учредитель, директор</p>
+					<a href="tel: 8(4832)620-300" class="number">8(4832)620-300</a>
+				</div>
+				<div class="contact">
+					<img src="{% static 'img/contacts/Svetlana.jpg' %}">
+					<h3>Светлана<br>Жалейко</h3>
+					<p class="posititon">Исполнительный директор</p>
+					<a href="tel: 8(4832) 620-300" class="number">8(4832) 620-300</a><br>
+					<a href="tel: 8-920-602-05-20" class="number">8-920-602-05-20</a>
+				</div>	
+				<div class="contact">
+					<img src="{% static 'img/contacts/Lyuba.jpg' %}">
+					<h3>Любовь<br>Горелова</h3>
+					<p class="posititon">Менеджер по работе с клиентами и персоналом</p>
+					<a href="tel: 8(4832) 620-300" class="number">8(4832) 620-300</a><br>
+					<a href="tel: 8-900-365-94-50" class="number">8-900-365-94-50</a>
+				</div>
+				<div class="contact">
+					<img src="{% static 'img/contacts/Galina.jpg' %}">
+					<h3>Галина<br>Северьянова</h3>
+					<p class="posititon">Специалист по реабилитации</p>
+					<a href="tel: 8(4832)620-300" class="number">8(4832)620-300</a><br>
+					<a href="tel: 8-962-133-35-51" class="number">8-962-133-35-51</a>
+				</div>											
+			</div>
+			<div class="footer">
+				<div class="inside">
+					<h4>Офис:</h4>
+					<a href="mailto:patronag32@mail.ru" target="_blank">patronag32@mail.ru</a>
+					<p>г.Брянск, проспект Станке Дмитрова, д.86, пом.2: территория областной больницы №1, корпус 12(АХЧ)</p>	
+					<br>
+					<p>Уважаемые граждане!<br>Учитывая, что наша служба работает с 2002 г., многие фирмы и люди пользуются нашим добрым именем.<br> Опасайтесь некачественной работы псевдо-сиделок и мошенников! </p>				
+				</div>
+			</div>
+		</section>
+		<section class="blur" style="display: none;"></section>
+	</main>
+
+	<script>
+		function fun_mob(){
+			if ($("#checkbox-label-mob").hasClass("uncheck"))
+			{
+				$("#checkbox-label-mob").removeClass("uncheck");
+				$("#checkbox-label-mob").addClass("check");
+				$(".agree_mob").prop('checked', true);
+			}
+			else{
+				$("#checkbox-label-mob").removeClass("check");
+				$("#checkbox-label-mob").addClass("uncheck");
+				$(".agree_mob").prop('checked', false);
+			}
+		}
+
+		function fun(){
+			var label_checkbox = document.getElementById("checkbox-label");
+			if (label_checkbox.className === "uncheck"){
+				label_checkbox.className = "check";
+				$("#id_agree").prop('checked', true);
+			}
+			else {
+				label_checkbox.className = "uncheck";
+				$("#id_agree").prop('checked', false);
+			}
+		}
+
+		function fun2(){
+			var label_checkbox = document.getElementById("checkbox-label2");
+			if (label_checkbox.className === "uncheck"){
+				label_checkbox.className = "check";
+				$(".agree_help").prop('checked', true);
+			}
+			else {
+				label_checkbox.className = "uncheck";
+				$(".agree_help").prop('checked', false);
+			}
+		};
+		function fun3(){
+			var label_checkbox = document.getElementById("checkbox-for_me");
+			if (label_checkbox.className === "uncheck"){
+				label_checkbox.className = "check";
+				$(".agree_help_you").prop('checked', true);
+			}
+			else {
+				label_checkbox.className = "uncheck";
+                $(".agree_help_you").prop('checked', false);
+			}
+		};		
+		function fun4(){
+			var label_checkbox = document.getElementById("checkbox-for_us");
+			if (label_checkbox.className === "uncheck"){
+				label_checkbox.className = "check";
+				$(".agree_can_help").prop('checked', true);
+			}
+			else {
+				label_checkbox.className = "uncheck";
+                $(".agree_can_help").prop('checked', false);
+			}
+		};		
+
+		$(document).ready(function(){
+		    $('.go_to').click( function(){ 
+
+		    // ловим клик по ссылке с классом go_to
+		    $('.main-menu').removeClass('responsive');
+		  	$("#header-container").removeClass('cont-responsive');		    	
+			var scroll_el = $(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
+		        if ($(scroll_el).length != 0) { // проверим существование элемента чтобы избежать ошибки
+			    $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500); // анимируем скроолинг к элементу scroll_el
+		        }
+			    return false; // выключаем стандартное действие
+		    });
+
+		    $('#menu').click(function(){
+		    	if ($('.main-menu').hasClass("responsive"))
+		    	{
+		    		$('.main-menu').removeClass('responsive');
+		    		$("#header-container").removeClass('cont-responsive');
+		    	}
+		    	else{
+		    		$('.main-menu').addClass('responsive');
+		    		$("#header-container").addClass('cont-responsive');
+		    	}
+		    });
+
+		    $(".service-laptop").click(function(){
+		    	var id = $(this).attr('id');
+
+		    	if ($("#detail_"+id).css('display') == 'none')
+		    	{
+		    		$("#detail_"+id).fadeIn(function(){
+		    			$(".service-laptop").css('display', 'none');
+		    		});
+		    	}
+
+		    });
+
+		    $(".service").click(function(){
+		    	var id = $(this).attr('id');
+
+		    	if ($("#detail_"+id).css('display') == 'none')
+		    	{
+		    		$(".service_details").css('display', 'none');
+		    		$("#detail_"+id).slideDown(200);
+		    	}
+		    	else
+		    	{
+		    		$("#detail_"+id).slideUp(200);
+		    		$(".service_details").slideUp(200);
+		    	}
+
+		    });		    
+
+		    $(".close-details").click(function(){
+		    	$(".service_details").fadeOut(function(){
+		    		$(".service-laptop").css('display', 'block');
+		    	});
+		    });
+
+		    $(".open-response").click(function(){
+		    	if ($(this).parent(".image").hasClass("open")) {
+		    		$(this).parent(".image").removeClass("open");
+		    		$(this).html('Посмотреть оригинал');
+		    		$(this).removeClass("close-resp_text");
+		    	}
+		    	else{
+		    		$(this).parent(".image").addClass("open");
+		    		$(this).html('Скрыть оригинал');
+		    		$(this).addClass('close-resp_text');
+		    	}
+		    });	    
+
+		    $("#more-response-mob").click(function(){
+		    	var last_response = $(this).prop("className");
+
+		    	$(".response-"+(parseInt(last_response)+1)).css("display", "flex");
+
+		    	$(this).removeClass(last_response);
+		    	$(this).addClass((parseInt(last_response)+1).toString());
+		    })
+
+		    $(".responsive-small").click(function(){
+		    	if (screen.width > '770')
+		    	{
+		    		var id = $(this).prop("id");
+		    		$("#"+id+"-open").css("display", "block");
+		    		$(".blur").css("display", "block");
+		    	}
+		    })
+
+		    $(".open-resp").click(function(){
+		    	$(this).css("display", "none");
+		    	$(".blur").css("display", "none");
+		    })
+
+		    $("#rigth-click").click(function()
+		    {
+		    	var className = $(this).attr('class');
+		    	var number = +className;
+		    	if (number != 8)
+		    	{
+		    		$("#responsive-block-"+ number.toString()).css("z-index", "-1");
+			    	$("#responsive-block-"+ (number+1).toString()).fadeIn(function(){
+			    		$("#responsive-block-"+ number.toString()).css("display", "none");
+			    		$("#responsive-block-"+ number.toString()).css("z-index", "1");
+			    	});
+			    	$(this).removeClass(number.toString());
+			    	$(this).addClass((number+1).toString());	
+			    	$("#left-click").removeClass(number.toString());
+			    	$("#left-click").addClass((number+1).toString());
+		    	}	
+		    })
+
+		    $("#left-click").click(function()
+		    {
+		    	var className = $(this).attr('class');
+		    	var number = +className;
+		    	if (number != 1)
+		    	{
+		    		$("#responsive-block-"+ number.toString()).css("z-index", "-1");
+			    	$("#responsive-block-"+ (number-1).toString()).fadeIn(function(){
+			    		$("#responsive-block-"+ number.toString()).css("display", "none");
+			    		$("#responsive-block-"+ number.toString()).css("z-index", "1");
+			    	});
+			    	$(this).removeClass(number.toString());
+			    	$(this).addClass((number-1).toString());	
+			    	$("#rigth-click").removeClass(number.toString());
+			    	$("#rigth-click").addClass((number-1).toString());
+		    	}	
+		    })	    
+
+		});
+
+
+	</script>
+
+</body>
+</html>
